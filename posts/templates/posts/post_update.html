@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>edit Blog</title>
+{% endblock %}
+
+
+{% load bootstrap4 %}
+{% block body%}
+
+<form method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+{{ form.media }}
+{% bootstrap_form form %}
+
+    <button type="submit" class="btn btn-outline-dark">update</button>
+    <a class="btn btn-outline-primary" href="{% url 'posts:post_detail' pk=post.pk%}">Cancel</a>
+
+
+</form>
+
+
+{% endblock %}

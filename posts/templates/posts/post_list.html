@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Welcome, Black</title>
+{% endblock %}
+{% block body%}
+<div class="row justify-content-between">
+    {% for post in post_list %}
+        <div class="col-4 mt-4">
+            <div class="card edit_card">
+              <img src="{{ post.image.url }}"
+                   class="card-img-top" alt="horror">
+              <div class="card-body">
+                <h5 class="card-title">{{ post.title|safe }}</h5>
+                <p class="card-text">{{ post.content|truncatewords:20|safe }}</p>
+                <a href="{% url 'posts:post_detail' pk=post.pk %}" class="btn btn-primary">كمل يا وحش</a>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+
+</div>
+{% endblock %}
+

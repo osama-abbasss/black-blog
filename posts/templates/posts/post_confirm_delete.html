@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+    <b>oh, You will Delete Your Note! </b><hr>
+    <input type="submit" class="btn btn-danger" value="Delete" >
+    <a href="{% url 'posts:post_detail' pk=post.pk%}" class="btn  btn-light">No</a>
+</form>
+
+{% endblock%}

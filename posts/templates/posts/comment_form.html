@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}
+<title>comment</title>
+{% endblock %}
+
+
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.media }}
+    {% bootstrap_form form %}
+    <input type="submit" class="btn btn-dark">
+    <a class="btn btn-primary" href="{% url 'posts:post_list' %}">Back</a>
+</form>
+
+{% endblock %}
